@@ -1,8 +1,12 @@
 import { FilterSection,DisplayTodos,InputAddTodo,HeroAndTheme } from "./"
 import { motion } from "framer-motion";
+import { useThemeSlice } from "../hooks";
 
 
 export const TodosSection = () => {
+
+  const { darkMode }=useThemeSlice()
+
   return (
     <motion.div 
     initial={{opacity:0}}
@@ -25,6 +29,13 @@ export const TodosSection = () => {
       <DisplayTodos />
 
       <FilterSection />
+      
+      <footer className={`
+      ${ (darkMode)  ? 'text-[white] ':'text-[black]' }
+      text-[12px] text-center mt-14`} >
+          Challenge by <a className="text-[blue]" href="https://www.frontendmentor.io/">Frontend Mentor</a>. Coded by  
+          <a className="text-[blue]" href="https://github.com/Raul-code1"> Raul Pineda</a>.
+      </footer>
 
     </motion.div>
   )
